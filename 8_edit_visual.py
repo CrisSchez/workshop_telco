@@ -23,7 +23,7 @@ fin = open("visuals.json", "rt")
 #read file contents to string
 data = fin.read()
 #replace all occurrences of the required string
-data = data.replace(DATABASE+'.telco_data_curated','default.icebergchurn')
+data = data.replace('default.icebergchurn',DATABASE+'.telco_data_curated')
 #close the input file
 fin.close()
 #open the input file in write mode
