@@ -53,15 +53,4 @@ except:
   storage_environment = cml.create_environment_variable(storage_environment_params)
   os.environ["STORAGE"] = storage
   
-#set impala host
-IMPALA_HOST='coordinator-se-sandbox-impala-cdw.dw-se-sandboxx-aws.a465-9q4k.cloudera.site'
-impala_environment_params = {"IMPALA_HOST":IMPALA_HOST}
-storage_environment = cml.create_environment_variable(impala_environment_params)
-
-
-# Upload the data to the cloud storage
-!hdfs dfs -mkdir -p $STORAGE/datalake
-!hdfs dfs -mkdir -p $STORAGE/datalake/data
-!hdfs dfs -mkdir -p $STORAGE/datalake/data/churn
-!hdfs dfs -copyFromLocal /home/cdsw/raw/WA_Fn-UseC_-Telco-Customer-Churn-.csv $STORAGE/datalake/data/churn/WA_Fn-UseC_-Telco-Customer-Churn-.csv
 
