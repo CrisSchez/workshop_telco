@@ -39,7 +39,7 @@ if uservariables['username'][-3] == '0':
   DATABASE = "user"+uservariables['username'][-3:]
 else:
   #DATABASE = uservariables['username']
-  DATABASE = 'user002'
+  DATABASE = 'acampos'
 
 
 runtimes=cml.get_runtimes()
