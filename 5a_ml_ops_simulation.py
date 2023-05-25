@@ -153,14 +153,14 @@ spark = SparkSession\
 #dfcurrent = spark.sql("SELECT * FROM default.telco_iceberg_kafka").toPandas()
 dfcurrent = spark.sql("SELECT * FROM "+ DATABASE + ".telco_data_curated").toPandas()
 
-dfcurrent['tenure']=dfcurrent['tenure'].str.replace(",",".")
-dfcurrent['monthlycharges']=dfcurrent['monthlycharges'].str.replace(",",".")
-dfcurrent['totalcharges']=dfcurrent['totalcharges'].str.replace(",",".")
+#dfcurrent['tenure']=dfcurrent['tenure'].str.replace(",",".")
+#dfcurrent['monthlycharges']=dfcurrent['monthlycharges'].str.replace(",",".")
+#dfcurrent['totalcharges']=dfcurrent['totalcharges'].str.replace(",",".")
 
 
-dfcurrent['tenure']=pd.to_numeric(dfcurrent['tenure'])
-dfcurrent['monthlycharges']=pd.to_numeric(dfcurrent['monthlycharges'])
-dfcurrent['totalcharges']=pd.to_numeric(dfcurrent['totalcharges'])
+#dfcurrent['tenure']=pd.to_numeric(dfcurrent['tenure'])
+#dfcurrent['monthlycharges']=pd.to_numeric(dfcurrent['monthlycharges'])
+#dfcurrent['totalcharges']=pd.to_numeric(dfcurrent['totalcharges'])
 
 
   
@@ -194,14 +194,14 @@ print(icebergHistory['made_current_at'][changeDate.idxmin()])
 df=spark.read\
     .option("snapshot-id", icebergHistory['snapshot_id'][changeDate.idxmin()])\
     .table("spark_catalog."+ DATABASE + ".telco_data_curated").toPandas()
-df['tenure']=df['tenure'].str.replace(",",".")
-df['monthlycharges']=df['monthlycharges'].str.replace(",",".")
-df['totalcharges']=df['totalcharges'].str.replace(",",".")
+#df['tenure']=df['tenure'].str.replace(",",".")
+#df['monthlycharges']=df['monthlycharges'].str.replace(",",".")
+#df['totalcharges']=df['totalcharges'].str.replace(",",".")
 
     
-df['tenure']=pd.to_numeric(df['tenure'])
-df['monthlycharges']=pd.to_numeric(df['monthlycharges'])
-df['totalcharges']=pd.to_numeric(df['totalcharges'])
+#df['tenure']=pd.to_numeric(df['tenure'])
+#df['monthlycharges']=pd.to_numeric(df['monthlycharges'])
+#df['totalcharges']=pd.to_numeric(df['totalcharges'])
 df['churn']=dfcurrent['churn']
 model_id = str(pd.to_numeric(pd.DataFrame(cml.get_models(params))['id']).min())
 latest_model = cml.get_model({"id": model_id, "latestModelDeployment": True, "latestModelBuild": True})
