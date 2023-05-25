@@ -127,7 +127,7 @@ if uservariables['username'][-3] == '0':
   DATABASE = "user"+uservariables['username'][-3:]
 else:
   #DATABASE = uservariables['username']
-  DATABASE = 'user002'
+  DATABASE = 'acampos'
 ## Set the model ID
 # Get the model id from the model you deployed in step 5. These are unique to each 
 # model on CML.
