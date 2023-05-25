@@ -122,13 +122,13 @@ hadoop_user = os.environ['HADOOP_USER_NAME']
 #df = spark.sql("SELECT * FROM default.telco_iceberg_kafka").toPandas()
 df = spark.sql("SELECT * FROM "+ DATABASE + ".telco_data_curated").toPandas()
 
-df['tenure']=df['tenure'].str.replace(",",".")
-df['monthlycharges']=df['monthlycharges'].str.replace(",",".")
-df['totalcharges']=df['totalcharges'].str.replace(",",".")
+#df['tenure']=df['tenure'].str.replace(",",".")
+#df['monthlycharges']=df['monthlycharges'].str.replace(",",".")
+#df['totalcharges']=df['totalcharges'].str.replace(",",".")
 
-df['tenure']=pd.to_numeric(df['tenure'])
-df['monthlycharges']=pd.to_numeric(df['monthlycharges'])
-df['totalcharges']=pd.to_numeric(df['totalcharges'])
+#df['tenure']=pd.to_numeric(df['tenure'])
+#df['monthlycharges']=pd.to_numeric(df['monthlycharges'])
+#df['totalcharges']=pd.to_numeric(df['totalcharges'])
 
 idcol = 'customerid'
 labelcol = 'churn'
