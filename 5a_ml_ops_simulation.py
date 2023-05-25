@@ -133,7 +133,7 @@ else:
 # model on CML.
 
 #model_id = "1"
-DATABASE = 'acampos'
+
 # Grab the data from Hive.
 from pyspark.sql import SparkSession
 from pyspark.sql.types import *
